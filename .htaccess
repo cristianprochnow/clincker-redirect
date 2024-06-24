@@ -1,0 +1,9 @@
+RewriteEngine On
+DirectoryIndex index.php
+# RewriteCond %{SCRIPT_FILENAME} !-f
+# RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.exe\.php [NC]
+RewriteCond %{REQUEST_URI} !^/favicon\.ico [NC]
+RewriteCond %{REQUEST_URI} !^/public/ [NC]
+RewriteCond %{REQUEST_URI} ^(.*) [NC,OR]
+RewriteRule ^([^?]*) index.php?key=$1 [NC,QSA,L]
